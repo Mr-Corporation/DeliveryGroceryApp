@@ -1,6 +1,6 @@
 {
-    "name": "provider",
-    "short_name": "provider",
+    "name": "deliverygorceryapp",
+    "short_name": "deliverygorceryapp",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

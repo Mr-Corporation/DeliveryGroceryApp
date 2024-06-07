@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/utils/app_colors/app_colors.dart';
+
+import '../app_colors/app_colors.dart';
 
 var bottomNavDecoration = BoxDecoration(
   border: Border(

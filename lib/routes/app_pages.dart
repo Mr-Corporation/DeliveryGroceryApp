@@ -1,12 +1,12 @@
-
 import 'package:get/get.dart';
-import 'package:provider/app/onboarding/onboarding_binding.dart';
-import 'package:provider/app/onboarding/onboarding_view.dart';
-import 'package:provider/app/profile_type/profile_type_binding.dart';
-import 'package:provider/app/profile_type/profile_type_view.dart';
-import 'package:provider/app/splash/splash_binding.dart';
-import 'package:provider/app/splash/splash_view.dart';
-import 'package:provider/routes/app_routes.dart';
+
+import '../app/onboarding/onboarding_binding.dart';
+import '../app/onboarding/onboarding_view.dart';
+import '../app/profile_type/profile_type_binding.dart';
+import '../app/profile_type/profile_type_view.dart';
+import '../app/splash/splash_binding.dart';
+import '../app/splash/splash_view.dart';
+import 'app_routes.dart';
 
 class AppPages {
   static final List<GetPage> pages = [
@@ -18,17 +18,15 @@ class AppPages {
 
     GetPage(
       name: AppRoutes.onboarding,
-      page: () =>  OnBoardingView(),
+      page: () => OnBoardingView(),
       binding: OnBoardingBinding(),
     ),
 
-
     //profile Type
-
 
     GetPage(
       name: AppRoutes.profile_type,
-      page: () =>  ProfileTypeView(),
+      page: () => ProfileTypeView(),
       binding: ProfileTypeBinding(),
     ),
 

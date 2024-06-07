@@ -1,9 +1,8 @@
-
+import 'package:deliverygorceryapp/app/profile_type/profile_type_binding.dart';
+import 'package:deliverygorceryapp/delivery_app/splash.dart';
+import 'package:deliverygorceryapp/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:provider/app/profile_type/profile_type_binding.dart';
-import 'package:provider/app/profile_type/profile_type_view.dart';
-import 'package:provider/routes/app_pages.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +31,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "My Hive Business",
       initialBinding: ProfileTypeBinding(),
-      home: ProfileTypeView(),
+      home: SplashScreen(),
       getPages: AppPages.pages,
     );
   }

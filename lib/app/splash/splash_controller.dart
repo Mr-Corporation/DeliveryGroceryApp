@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-import 'package:provider/routes/app_routes.dart';
+
+import '../../routes/app_routes.dart';
 
 class SplashController extends GetxController {
   static SplashController instance = Get.find();

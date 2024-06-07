@@ -1,18 +1,16 @@
+import 'package:deliverygorceryapp/utils/app_colors/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/utils/app_colors/app_colors.dart';
-
 
 class AppTextFied extends StatefulWidget {
   AppTextFied({
     Key? key,
     this.hint = "",
-    this.label ,
+    this.label,
     this.hintColor = Colors.black,
     this.hintSize,
     this.textInputType,
-
     this.textInputAction,
     this.prefixIcon,
     this.suffixIcon,
@@ -30,7 +28,7 @@ class AppTextFied extends StatefulWidget {
     this.isborderline = false,
     this.isborderline1 = false,
     this.isborderline2 = false,
-    this.listInputParam ,
+    this.listInputParam,
     this.borderColor = Colors.transparent,
     this.borderColor1 = Colors.transparent,
     this.borderColor2 = Colors.transparent,
@@ -57,7 +55,7 @@ class AppTextFied extends StatefulWidget {
   }) : super(key: key);
   final bool obsecure;
   final String hint;
-  final String ? label;
+  final String? label;
   final bool isFill;
   final bool isVisible;
   final bool enabled;
@@ -68,7 +66,7 @@ class AppTextFied extends StatefulWidget {
   final double? hintSize;
   final TextEditingController? controller;
   final TextInputType? textInputType;
-  List<TextInputFormatter> ? listInputParam;
+  List<TextInputFormatter>? listInputParam;
   final Widget? prefixIcon;
   final bool isShowCursor;
 
@@ -92,11 +90,11 @@ class AppTextFied extends StatefulWidget {
   final BorderRadius borderRadius;
   final BorderRadius borderRadius1;
   final BorderRadius borderRadius2;
-  final Color ?labelColor;
-  final double ?labelSize;
-  final FontWeight ?labelFont;
+  final Color? labelColor;
+  final double? labelSize;
+  final FontWeight? labelFont;
 
-  final double ? heightTextField;
+  final double? heightTextField;
   final Widget? suffixIcon;
   final TextInputAction? textInputAction;
   /*final String intialValue;*/
@@ -115,12 +113,10 @@ class _AppTextFiedState extends State<AppTextFied> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: widget.heightTextField,
-
       child: TextFormField(
         autovalidateMode: widget.autovalidateMode,
-
         onChanged: widget.onChange ??
-                (value) {
+            (value) {
               if (value.isNotEmpty) {
                 setState(() {
                   isClear = true;
@@ -131,90 +127,85 @@ class _AppTextFiedState extends State<AppTextFied> {
                 });
               }
             },
-
         onEditingComplete: widget.onEditingComplete,
         onSaved: widget.onSaved,
-
-
         onFieldSubmitted: widget.onFieldSubmitted,
         validator: widget.validator,
         controller: widget.controller,
         style: GoogleFonts.poppins(
             textStyle: TextStyle(
-                fontSize: widget.hintSize ?? 15,
-                fontWeight: FontWeight.w400,
-
-            )),
+          fontSize: widget.hintSize ?? 15,
+          fontWeight: FontWeight.w400,
+        )),
         maxLength: widget.maxLength,
         obscureText: widget.obsecure,
         onTap: widget.onTap,
-
         cursorColor: widget.cursorColor ?? AppColors.primary_color,
         maxLines: widget.maxLines,
         showCursor: widget.isShowCursor,
         readOnly: widget.isReadOnly,
         keyboardType: widget.textInputType,
-
         textInputAction: widget.textInputAction,
         inputFormatters: widget.listInputParam,
         decoration: InputDecoration(
           contentPadding: widget.padding,
-
           border: InputBorder.none,
           fillColor: widget.fillColor,
           filled: widget.isFill,
           hintText: widget.hint,
           labelText: widget.label,
           labelStyle: GoogleFonts.poppins(
-              textStyle:TextStyle(color: widget.labelColor,fontSize: widget.labelSize,fontWeight: widget.labelFont)),
+              textStyle: TextStyle(
+                  color: widget.labelColor,
+                  fontSize: widget.labelSize,
+                  fontWeight: widget.labelFont)),
           floatingLabelBehavior: FloatingLabelBehavior.auto,
           suffixIcon: widget.isSuffix ? widget.suffixIcon : null,
           prefixIcon: widget.isPrefix ? widget.prefixIcon : null,
           hintStyle: GoogleFonts.inter(
               textStyle: TextStyle(
-                color: widget.hintColor,
-                fontSize: widget.hintSize,
-                fontWeight: FontWeight.w400,
-              )),
-          errorStyle:
-          GoogleFonts.poppins(
-              textStyle :
-              TextStyle(color: Colors.red,fontWeight: FontWeight.w400,fontSize: 13)),
-
+            color: widget.hintColor,
+            fontSize: widget.hintSize,
+            fontWeight: FontWeight.w400,
+          )),
+          errorStyle: GoogleFonts.poppins(
+              textStyle: TextStyle(
+                  color: Colors.red,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 13)),
           enabledBorder: widget.isborderline
               ? OutlineInputBorder(
-            borderSide: BorderSide(color: widget.borderColor, width: 1),
-            borderRadius: widget.borderRadius,
-          )
+                  borderSide: BorderSide(color: widget.borderColor, width: 1),
+                  borderRadius: widget.borderRadius,
+                )
               : null,
           disabledBorder: widget.isborderline1
               ? OutlineInputBorder(
-            borderSide: BorderSide(width: 1, color: widget.borderColor1),
-            borderRadius: widget.borderRadius1,
-          )
+                  borderSide: BorderSide(width: 1, color: widget.borderColor1),
+                  borderRadius: widget.borderRadius1,
+                )
               : null,
-          errorBorder:  OutlineInputBorder(
+          errorBorder: OutlineInputBorder(
             borderSide: const BorderSide(
               width: 1.5,
               color: Colors.red,
             ),
             borderRadius: BorderRadius.circular(10),
           ),
-
           focusedErrorBorder: widget.isborderline2
               ? OutlineInputBorder(
-            borderSide: BorderSide(
-              width: 1,
-              color: widget.borderColor2,
-            ),
-            borderRadius: widget.borderRadius2,
-          )
+                  borderSide: BorderSide(
+                    width: 1,
+                    color: widget.borderColor2,
+                  ),
+                  borderRadius: widget.borderRadius2,
+                )
               : null,
           focusedBorder: widget.isborderline2
               ? OutlineInputBorder(
-            borderRadius: widget.borderRadius2,
-            borderSide: BorderSide(width: 1, color: widget.borderColor2),
-          )
+                  borderRadius: widget.borderRadius2,
+                  borderSide: BorderSide(width: 1, color: widget.borderColor2),
+                )
               : null,
         ),
       ),
@@ -223,17 +214,16 @@ class _AppTextFiedState extends State<AppTextFied> {
 }
 
 Widget appField({
-
   TextEditingController? controller,
   String? hint = "",
-  String ? label ,
-  EdgeInsets ? paddingALl,
-  Color ? labelColor,
-  Color ? hintColor,
-  double ? labelSize,
-  FontWeight ?labelFont,
+  String? label,
+  EdgeInsets? paddingALl,
+  Color? labelColor,
+  Color? hintColor,
+  double? labelSize,
+  FontWeight? labelFont,
   Color fillColor = Colors.transparent,
-  Color ?  border,
+  Color? border,
   TextInputType? textInputType,
   TextInputAction? textInputAction,
   bool obscure = false,
@@ -248,20 +238,16 @@ Widget appField({
   required BuildContext context,
   double? height,
   double? hintSize,
-  List<TextInputFormatter> ? listInputParam,
+  List<TextInputFormatter>? listInputParam,
   int? max,
   Widget? child,
-  BorderRadius?borderRadius,
-
+  BorderRadius? borderRadius,
   Widget? child1,
 }) {
   return AppTextFied(
-
-
     isborderline: isBorderLine,
     autovalidateMode: AutovalidateMode.onUserInteraction,
     isborderline2: isBorderLine,
-
     validator: validator,
     obsecure: obscure,
     listInputParam: listInputParam,
@@ -273,37 +259,26 @@ Widget appField({
     isPrefix: isPrefix,
     onTap: onTap,
     isborderline1: isBorderLine,
-
-
     fillColor: fillColor,
-
     prefixIcon: child1 ?? const SizedBox.shrink(),
     onChange: onChange,
     isReadOnly: isRead,
     isShowCursor: isCur,
-
     suffixIcon: child ?? const SizedBox.shrink(),
-    padding:
-    paddingALl??
-        EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: height ?? 10),
-    borderRadius:borderRadius?? BorderRadius.circular(10),
-    borderRadius2:borderRadius?? BorderRadius.circular(10),
-    borderColor:border??AppColors.input_border_color,
-    borderColor1:border??AppColors.input_border_color,
+    padding: paddingALl ??
+        EdgeInsets.symmetric(horizontal: 16, vertical: height ?? 10),
+    borderRadius: borderRadius ?? BorderRadius.circular(10),
+    borderRadius2: borderRadius ?? BorderRadius.circular(10),
+    borderColor: border ?? AppColors.input_border_color,
+    borderColor1: border ?? AppColors.input_border_color,
     hint: hint ?? "",
-    hintColor:hintColor?? AppColors.hint_color,
+    hintColor: hintColor ?? AppColors.hint_color,
     textInputType: textInputType ?? TextInputType.name,
     textInputAction: textInputAction ?? TextInputAction.next,
-    hintSize:hintSize?? 15
-    ,
-
-
+    hintSize: hintSize ?? 15,
     isSuffix: isSuffix,
-
     controller: controller,
-    borderColor2:border?? AppColors.primary_color,
+    borderColor2: border ?? AppColors.primary_color,
     maxLines: max ?? 1,
   );
 }

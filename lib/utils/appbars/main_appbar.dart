@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:provider/utils/app_text/app_text.dart';
+
+import '../app_text/app_text.dart';
 
 class MainAppBar extends StatelessWidget {
-   MainAppBar({
+  MainAppBar({
     super.key,
     this.title,
     this.width,
@@ -13,20 +14,21 @@ class MainAppBar extends StatelessWidget {
   });
   final String? title;
   final String icon;
-  double ? width;
-  VoidCallback ? onTap;
+  double? width;
+  VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal:width?? 0),
+      padding: EdgeInsets.symmetric(horizontal: width ?? 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
-            onTap:onTap?? () {
-              Get.back();
-            },
+            onTap: onTap ??
+                () {
+                  Get.back();
+                },
             child: SvgPicture.asset(icon),
           ),
           AppText(
@@ -34,7 +36,8 @@ class MainAppBar extends StatelessWidget {
             fontWeight: FontWeight.w600,
             size: 20,
           ),
-          SvgPicture.asset('assets/icons/back_ic.svg', color: Colors.transparent),
+          SvgPicture.asset('assets/icons/back_ic.svg',
+              color: Colors.transparent),
         ],
       ),
     );

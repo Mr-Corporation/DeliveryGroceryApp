@@ -1,18 +1,18 @@
 // ignore_for_file: file_names
+import 'package:deliverygorceryapp/utils/app_colors/app_colors.dart';
+import 'package:deliverygorceryapp/utils/app_text/app_text.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/utils/app_colors/app_colors.dart';
-import 'package:provider/utils/app_text/app_text.dart';
 
 class AppButton extends StatelessWidget {
   final String buttonName;
   final double textSize;
   final double buttonWidth;
   final double buttonHeight;
-  final Color ? buttonColor;
+  final Color? buttonColor;
   final Color textColor;
   final Color iconColor;
-  final FontWeight ? fontWeight;
-  final BorderRadius ? buttonRadius;
+  final FontWeight? fontWeight;
+  final BorderRadius? buttonRadius;
   final IconData icon;
   final String iconImage;
   final bool isIcon;
@@ -28,10 +28,10 @@ class AppButton extends StatelessWidget {
     required this.buttonName,
     this.buttonWidth = double.infinity,
     this.buttonHeight = 52,
-     this.buttonColor,
-     this.textColor=Colors.white,
+    this.buttonColor,
+    this.textColor = Colors.white,
     this.fontWeight = FontWeight.w500,
-    this.buttonRadius ,
+    this.buttonRadius,
     this.iconColor = Colors.white,
     this.icon = Icons.home,
     this.iconImage = "",
@@ -54,8 +54,8 @@ class AppButton extends StatelessWidget {
           height: buttonHeight,
           width: buttonWidth,
           decoration: BoxDecoration(
-              color: buttonColor??AppColors.primary_color,
-              borderRadius: buttonRadius??BorderRadius.circular(10),
+              color: buttonColor ?? AppColors.primary_color,
+              borderRadius: buttonRadius ?? BorderRadius.circular(10),
               border: Border.all(
                 width: borderWidth,
                 color: borderColor,
@@ -95,7 +95,7 @@ class AppButton extends StatelessWidget {
                   child: AppText(
                       title: buttonName,
                       color: textColor,
-                      fontWeight: fontWeight??FontWeight.w700,
+                      fontWeight: fontWeight ?? FontWeight.w700,
                       size: textSize),
                 ),
                 isCenter ? const Spacer() : Container(),
@@ -117,4 +117,3 @@ class AppButton extends StatelessWidget {
     );
   }
 }
-

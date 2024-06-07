@@ -3,7 +3,8 @@ import 'package:intl_phone_field/countries.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
-import 'package:provider/utils/app_colors/app_colors.dart';
+
+import '../app_colors/app_colors.dart';
 
 class AppPhoneInput extends StatelessWidget {
   const AppPhoneInput({
@@ -21,7 +22,7 @@ class AppPhoneInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     return Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         IntlPhoneField(
@@ -31,15 +32,21 @@ class AppPhoneInput extends StatelessWidget {
           initialCountryCode: 'AE',
           languageCode: "en",
           textInputAction: TextInputAction.done,
-          dropdownIcon: Icon(Icons.arrow_drop_down,size: 34,color: AppColors.input_Icon_color,),
+          dropdownIcon: Icon(
+            Icons.arrow_drop_down,
+            size: 34,
+            color: AppColors.input_Icon_color,
+          ),
           pickerDialogStyle: PickerDialogStyle(backgroundColor: Colors.white),
           flagsButtonPadding: const EdgeInsets.only(left: 10),
           onCountryChanged: onCountryChanged,
-          dropdownTextStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: 15),
-          style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15),
+          dropdownTextStyle:
+              TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
           decoration: InputDecoration(
             hintText: "78 9087 8827",
-            hintStyle: TextStyle(color: Colors.grey.shade300,fontWeight: FontWeight.normal),
+            hintStyle: TextStyle(
+                color: Colors.grey.shade300, fontWeight: FontWeight.normal),
             fillColor: Colors.transparent,
             filled: true,
             border: OutlineInputBorder(
@@ -55,7 +62,7 @@ class AppPhoneInput extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide:  BorderSide(color: AppColors.input_border_color),
+              borderSide: BorderSide(color: AppColors.input_border_color),
               borderRadius: BorderRadius.circular(10),
             ),
             focusedBorder: OutlineInputBorder(

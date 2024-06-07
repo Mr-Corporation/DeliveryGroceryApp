@@ -1,14 +1,13 @@
-
-
-
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:provider/utils/app_colors/app_colors.dart';
-import 'package:provider/utils/app_text/app_text.dart';
 
-Widget bottomSheet({onCamera ,onGallery,required BuildContext context}) {
+import '../app_colors/app_colors.dart';
+import '../app_text/app_text.dart';
+
+Widget bottomSheet({onCamera, onGallery, required BuildContext context}) {
   return DraggableScrollableSheet(
     initialChildSize: 0.25,
     minChildSize: 0.25,
@@ -16,11 +15,11 @@ Widget bottomSheet({onCamera ,onGallery,required BuildContext context}) {
     builder: (_, controller) => Container(
       decoration: BoxDecoration(
         color: AppColors.white_color,
-        borderRadius:  BorderRadius.only(
+        borderRadius: BorderRadius.only(
             topLeft: Radius.circular(10), topRight: Radius.circular(10)),
       ),
       child: Padding(
-        padding:  EdgeInsets.only(top: 10),
+        padding: EdgeInsets.only(top: 10),
         child: Column(
           children: [
             const SizedBox(
@@ -29,16 +28,17 @@ Widget bottomSheet({onCamera ,onGallery,required BuildContext context}) {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-
                 InkWell(
                     onTap: onGallery,
-                    child: iconCreation(
-                        Icons.insert_photo, AppColors.primary_color, "Gallery")),
-                SizedBox(width: Get.width*0.2,),
+                    child: iconCreation(Icons.insert_photo,
+                        AppColors.primary_color, "Gallery")),
+                SizedBox(
+                  width: Get.width * 0.2,
+                ),
                 InkWell(
                     onTap: onCamera,
                     child: iconCreation(
-                        Icons.camera_alt,AppColors.primary_color , "Camera")),
+                        Icons.camera_alt, AppColors.primary_color, "Camera")),
               ],
             ),
           ],
@@ -46,8 +46,6 @@ Widget bottomSheet({onCamera ,onGallery,required BuildContext context}) {
       ),
     ),
   );
-
-
 }
 
 Widget iconCreation(IconData icons, Color color, String text) {
@@ -75,14 +73,15 @@ Widget iconCreation(IconData icons, Color color, String text) {
   );
 }
 
- Future<File?> pickImage(ImageSource imageSource) async {
-File imageFile;
-final file = await ImagePicker().pickImage(source: imageSource,imageQuality: 20);
-if (file != null) {
-imageFile = File(file.path);
-return imageFile;
-} else {
-print("No image selected");
-}
-return null;
+Future<File?> pickImage(ImageSource imageSource) async {
+  File imageFile;
+  final file =
+      await ImagePicker().pickImage(source: imageSource, imageQuality: 20);
+  if (file != null) {
+    imageFile = File(file.path);
+    return imageFile;
+  } else {
+    print("No image selected");
+  }
+  return null;
 }
