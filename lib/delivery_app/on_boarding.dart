@@ -1,4 +1,5 @@
 import 'package:deliverygorceryapp/delivery_app/sign_in/sign_in.dart';
+import 'package:deliverygorceryapp/delivery_app/sign_up/sign_up.dart';
 import 'package:deliverygorceryapp/utils/app_button/app_button.dart';
 import 'package:deliverygorceryapp/utils/app_colors/app_colors.dart';
 import 'package:deliverygorceryapp/utils/app_text/app_text.dart';
@@ -91,7 +92,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       buttonColor: AppColors.white_color,
                       textColor: AppColors.primary_color,
                       onTap: () {
-                        Get.to(SignInView());
+                        Get.to(SignUpView());
                       }),
                 ],
               ),

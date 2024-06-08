@@ -22,9 +22,14 @@ class _SignInViewState extends State<SignInView> {
       backgroundColor: AppColors.white_color_small,
       appBar: AppBar(
         backgroundColor: AppColors.white_color_small,
-        leading: Icon(
-          Icons.arrow_back_ios,
-          color: AppColors.primary_color,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: AppColors.primary_color,
+          ),
         ),
         title: AppText(
           title: "Sign In",
