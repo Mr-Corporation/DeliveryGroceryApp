@@ -1,9 +1,11 @@
 import 'package:country_picker/country_picker.dart';
+import 'package:deliverygorceryapp/delivery_app/payment/payment.dart';
 import 'package:deliverygorceryapp/utils/app_button/app_button.dart';
 import 'package:deliverygorceryapp/utils/app_colors/app_colors.dart';
 import 'package:deliverygorceryapp/utils/app_text/app_text.dart';
 import 'package:deliverygorceryapp/utils/dimen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SignInView extends StatefulWidget {
   const SignInView({super.key});
@@ -176,7 +178,7 @@ class _SignInViewState extends State<SignInView> {
                 buttonColor: AppColors.primary_color,
                 textColor: Colors.white,
                 onTap: () {
-                  //  Get.to(SignInView());
+                  Get.to(PaymentView());
                 }),
             VSpace(MarginConst.m20),
             Row(

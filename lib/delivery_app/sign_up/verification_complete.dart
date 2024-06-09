@@ -18,7 +18,7 @@ class _VerificationSuccessfulState extends State<VerificationSuccessful> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer.periodic(Duration(seconds: 10), (timer) {
+    Timer.periodic(Duration(seconds: 3), (timer) {
       Navigator.pushReplacement(context, MaterialPageRoute(
         builder: (context) {
           return SignInView();
