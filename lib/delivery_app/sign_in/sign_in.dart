@@ -1,5 +1,5 @@
 import 'package:country_picker/country_picker.dart';
-import 'package:deliverygorceryapp/delivery_app/payment/payment.dart';
+import 'package:deliverygorceryapp/delivery_app/order_history/order_history.dart';
 import 'package:deliverygorceryapp/utils/app_button/app_button.dart';
 import 'package:deliverygorceryapp/utils/app_colors/app_colors.dart';
 import 'package:deliverygorceryapp/utils/app_text/app_text.dart';
@@ -178,7 +178,9 @@ class _SignInViewState extends State<SignInView> {
                 buttonColor: AppColors.primary_color,
                 textColor: Colors.white,
                 onTap: () {
-                  Get.to(PaymentView());
+                  Get.to(OrderHistory()
+                      //    PaymentView()
+                      );
                 }),
             VSpace(MarginConst.m20),
             Row(
