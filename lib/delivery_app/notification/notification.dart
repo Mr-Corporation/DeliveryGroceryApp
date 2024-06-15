@@ -33,7 +33,10 @@ class _NotificationViewState extends State<NotificationView> {
                     color: AppColors.black,
                   ),
                   Spacer(),
-                  Image.asset('assets/images/bellIcon.png', scale: 3),
+                  GestureDetector(
+                      onTap: () {},
+                      child:
+                          Image.asset('assets/images/bellIcon.png', scale: 3)),
                 ],
               ),
               VSpace(MarginConst.m16),

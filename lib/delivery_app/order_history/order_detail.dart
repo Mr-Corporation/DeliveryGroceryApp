@@ -1,5 +1,7 @@
 import 'package:deliverygorceryapp/constant_widget/base_view.dart';
 import 'package:deliverygorceryapp/constant_widget/dotted_line.dart';
+import 'package:deliverygorceryapp/delivery_app/notification/notification.dart';
+import 'package:deliverygorceryapp/delivery_app/order_history/order_history_review_point.dart';
 import 'package:deliverygorceryapp/utils/app_button/app_button.dart';
 import 'package:deliverygorceryapp/utils/app_colors/app_colors.dart';
 import 'package:deliverygorceryapp/utils/app_text/app_text.dart';
@@ -39,7 +41,12 @@ class _OrderDetailState extends State<OrderDetail> {
                             color: AppColors.black,
                           ),
                           Spacer(),
-                          Image.asset('assets/images/bellIcon.png', scale: 3),
+                          GestureDetector(
+                              onTap: () {
+                                Get.to(NotificationView());
+                              },
+                              child: Image.asset('assets/images/bellIcon.png',
+                                  scale: 3)),
                         ],
                       ),
                       ListView.builder(
@@ -178,6 +185,7 @@ class _OrderDetailState extends State<OrderDetail> {
                   buttonColor: AppColors.primary_color,
                   textColor: Colors.white,
                   onTap: () {
+                    Get.to(ReviewPoint());
                     // Get.to(OrderHistory()
                     //    PaymentView()
                     // );
@@ -224,8 +232,8 @@ class OrderDetailView extends StatelessWidget {
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(6),
                           bottomLeft: Radius.circular(6)),
-                      child: Image.network(
-                        'https://via.placeholder.com/80', // Replace with your image URL
+                      child: Image.asset(
+                        'assets/images/image 16.png', // Replace with your image URL
                         width: 100,
                         height: 97,
                         fit: BoxFit.cover,

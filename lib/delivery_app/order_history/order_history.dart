@@ -82,8 +82,8 @@ class ProductCard extends StatelessWidget {
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           bottomLeft: Radius.circular(10)),
-                      child: Image.network(
-                        'https://via.placeholder.com/80', // Replace with your image URL
+                      child: Image.asset(
+                        'assets/images/image 16.png',
                         width: 100,
                         height: 97,
                         fit: BoxFit.cover,

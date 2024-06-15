@@ -1,5 +1,5 @@
 import 'package:country_picker/country_picker.dart';
-import 'package:deliverygorceryapp/delivery_app/payment/payment.dart';
+import 'package:deliverygorceryapp/delivery_app/bottom_bar.dart';
 import 'package:deliverygorceryapp/utils/app_button/app_button.dart';
 import 'package:deliverygorceryapp/utils/app_colors/app_colors.dart';
 import 'package:deliverygorceryapp/utils/app_text/app_text.dart';
@@ -180,7 +180,7 @@ class _SignInViewState extends State<SignInView> {
                 onTap: () {
                   Get.to(
                       //OrderHistory()
-                      PaymentView());
+                      BottomBar());
                 }),
             VSpace(MarginConst.m20),
             Row(

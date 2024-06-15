@@ -1,7 +1,10 @@
 import 'package:deliverygorceryapp/constant_widget/base_view.dart';
+import 'package:deliverygorceryapp/delivery_app/help_support/help_support.dart';
 import 'package:deliverygorceryapp/utils/app_colors/app_colors.dart';
+import 'package:deliverygorceryapp/utils/app_text/app_text.dart';
 import 'package:deliverygorceryapp/utils/dimen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../utils/app_button/app_button.dart';
 
@@ -13,6 +16,17 @@ class AccountSetting extends StatefulWidget {
 }
 
 class _AccountSettingState extends State<AccountSetting> {
+  int selecteIndex = 0;
+  List language = [
+    {"title": "ENG", "sub": "English", "code": "en"},
+    {"title": "Punjabi", "sub": "Punjabi", "code": "pa"},
+    {"title": "Español", "sub": "Spanish", "code": "es"},
+    {"title": "Italiano", "sub": "Italian", "code": "it"},
+    {"title": "Deutsch", "sub": "German", "code": "nl"},
+    {"title": "Français", "sub": "French", "code": "fr"},
+    {"title": "Tagalog", "sub": "Tagalog", "code": "tl"},
+    {"title": "Chinese", "sub": "Chinese", "code": "zh"},
+  ];
   bool is_switch = true;
   @override
   Widget build(BuildContext context) {
@@ -47,7 +61,8 @@ class _AccountSettingState extends State<AccountSetting> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(360),
                   image: DecorationImage(
-                      image: NetworkImage('https://via.placeholder.com/150'))),
+                      image: AssetImage('assets/images/image 16.png'),
+                      fit: BoxFit.cover)),
             ),
             SizedBox(width: 20),
             Column(
@@ -115,6 +130,97 @@ class _AccountSettingState extends State<AccountSetting> {
                 ),
               ),
               _buildSettingsItem(
+                onTap1: () {
+                  Get.bottomSheet(
+                    StatefulBuilder(
+                      builder: (context, setState1) {
+                        return Container(
+                          height: Get.height / 2,
+                          width: Get.width,
+                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(24),
+                            ),
+                          ),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                Container(
+                                  width: Get.width / 4,
+                                  margin: EdgeInsets.only(
+                                    top: 6,
+                                    bottom: 10,
+                                  ),
+                                  height: 5,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    color: AppColors.primary_color,
+                                  ),
+                                ),
+                                AppText(
+                                  title: "Select Language",
+                                  size: 15,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xff000000),
+                                ),
+                                ListView.builder(
+                                  shrinkWrap: true,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  itemCount: language.length,
+                                  itemBuilder: (context, index) {
+                                    return ListTile(
+                                      onTap: () {
+                                        selecteIndex = index;
+                                        setState1(() {});
+                                        setState(() {});
+                                      },
+                                      leading: AppText(
+                                        title: language[index]['title'],
+                                        size: 12,
+                                        color: AppColors.black,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      title: AppText(
+                                        title: "",
+                                        size: 12,
+                                        color: AppColors.black,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      trailing: Container(
+                                        height: 16,
+                                        width: 16,
+                                        padding: EdgeInsets.all(1),
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(360),
+                                            border: Border.all(
+                                                color:
+                                                    AppColors.primary_color)),
+                                        child: Visibility(
+                                          visible: selecteIndex == index,
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              color: AppColors.primary_color,
+                                              borderRadius:
+                                                  BorderRadius.circular(360),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    isScrollControlled: true,
+                  );
+                },
                 icon: Icons.language,
                 title: 'Language Setting',
               ),
@@ -141,7 +247,10 @@ class _AccountSettingState extends State<AccountSetting> {
   }
 
   Widget _buildSettingsItem(
-      {required IconData icon, required String title, Widget? trailing}) {
+      {required IconData icon,
+      required String title,
+      Widget? trailing,
+      void Function()? onTap1}) {
     return ListTile(
       leading: Icon(icon, color: Colors.red),
       title: Text(
@@ -149,7 +258,10 @@ class _AccountSettingState extends State<AccountSetting> {
         style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
       ),
       trailing: trailing ?? null,
-      onTap: () {},
+      onTap: onTap1 ??
+          () {
+            Get.to(HepSupport());
+          },
     );
   }
 

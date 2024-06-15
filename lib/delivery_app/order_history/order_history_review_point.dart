@@ -1,9 +1,11 @@
 import 'package:deliverygorceryapp/constant_widget/base_view.dart';
+import 'package:deliverygorceryapp/delivery_app/notification/notification.dart';
 import 'package:deliverygorceryapp/utils/app_colors/app_colors.dart';
 import 'package:deliverygorceryapp/utils/app_text/app_text.dart';
 import 'package:deliverygorceryapp/utils/dimen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
 
 class ReviewPoint extends StatefulWidget {
   const ReviewPoint({super.key});
@@ -37,7 +39,12 @@ class _ReviewPointState extends State<ReviewPoint> {
                             color: AppColors.black,
                           ),
                           Spacer(),
-                          Image.asset('assets/images/bellIcon.png', scale: 3),
+                          GestureDetector(
+                              onTap: () {
+                                Get.to(NotificationView());
+                              },
+                              child: Image.asset('assets/images/bellIcon.png',
+                                  scale: 3)),
                         ],
                       ),
                       VSpace(MarginConst.m10),
@@ -183,14 +190,13 @@ class CustomerReview extends StatelessWidget {
       child: Row(
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(50.0),
-            child: Image.network(
-              imageUrl,
-              width: 63,
-              height: 63,
-              fit: BoxFit.cover,
-            ),
-          ),
+              borderRadius: BorderRadius.circular(50.0),
+              child: Image.asset(
+                'assets/images/image 16.png',
+                width: 63,
+                height: 63,
+                fit: BoxFit.cover,
+              )),
           const SizedBox(width: 16.0),
           Expanded(
             child: Column(

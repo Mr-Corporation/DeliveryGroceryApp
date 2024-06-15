@@ -1,9 +1,11 @@
 import 'package:deliverygorceryapp/constant_widget/base_view.dart';
 import 'package:deliverygorceryapp/constant_widget/popup_menu.dart';
+import 'package:deliverygorceryapp/delivery_app/notification/notification.dart';
 import 'package:deliverygorceryapp/utils/app_colors/app_colors.dart';
 import 'package:deliverygorceryapp/utils/app_text/app_text.dart';
 import 'package:deliverygorceryapp/utils/dimen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class PaymentView extends StatefulWidget {
   const PaymentView({super.key});
@@ -32,7 +34,12 @@ class _PaymentViewState extends State<PaymentView> {
                     color: AppColors.black,
                   ),
                   Spacer(),
-                  Image.asset('assets/images/bellIcon.png', scale: 3),
+                  GestureDetector(
+                      onTap: () {
+                        Get.to(NotificationView());
+                      },
+                      child:
+                          Image.asset('assets/images/bellIcon.png', scale: 3)),
                 ],
               ),
               VSpace(MarginConst.m20),

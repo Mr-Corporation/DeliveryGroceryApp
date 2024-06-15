@@ -1,10 +1,12 @@
 import 'package:deliverygorceryapp/constant_widget/base_view.dart';
 import 'package:deliverygorceryapp/constant_widget/text_field.dart';
+import 'package:deliverygorceryapp/delivery_app/notification/notification.dart';
 import 'package:deliverygorceryapp/utils/app_button/app_button.dart';
 import 'package:deliverygorceryapp/utils/app_colors/app_colors.dart';
 import 'package:deliverygorceryapp/utils/app_text/app_text.dart';
 import 'package:deliverygorceryapp/utils/dimen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HepSupport extends StatefulWidget {
   const HepSupport({super.key});
@@ -38,7 +40,12 @@ class _HepSupportState extends State<HepSupport> {
                             color: AppColors.black,
                           ),
                           Spacer(),
-                          Image.asset('assets/images/bellIcon.png', scale: 3),
+                          GestureDetector(
+                              onTap: () {
+                                Get.to(NotificationView());
+                              },
+                              child: Image.asset('assets/images/bellIcon.png',
+                                  scale: 3)),
                         ],
                       ),
                       VSpace(MarginConst.m10),
