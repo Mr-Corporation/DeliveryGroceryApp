@@ -1,13 +1,11 @@
 import 'package:deliverygorceryapp/constant_widget/base_view.dart';
 import 'package:deliverygorceryapp/delivery_app/notification/notification.dart';
+import 'package:deliverygorceryapp/delivery_app/order_direction/order_direction.dart';
 import 'package:deliverygorceryapp/utils/app_button/app_button.dart';
 import 'package:deliverygorceryapp/utils/app_colors/app_colors.dart';
 import 'package:deliverygorceryapp/utils/dimen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
-
-import '../../utils/app_text/app_text.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -298,7 +296,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  OrderDetail() {
+  OrderDetail({String? isDenied, String? isAccept}) {
     return Container(
       width: Get.width,
       padding: EdgeInsets.symmetric(horizontal: 20),
@@ -393,124 +391,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: AppButton(
                       buttonHeight: 49,
                       buttonRadius: BorderRadius.circular(6),
-                      buttonName: "Decline",
+                      buttonName: isDenied ?? "Decline",
                       buttonColor: Color(0xffF9F9F9),
                       textColor: Color(0xffC9C9C9),
                       onTap: () {
-                        print("dsv");
-                        showDialog(
-                          context: context,
-                          builder: (context) {
-                            return Center(
-                              // Wrap with Center widget
-                              child: Material(
-                                color: Colors.transparent,
-                                child: SingleChildScrollView(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(25),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Align(
-                                          alignment: Alignment.center,
-                                          child: Container(
-                                            width: double.infinity,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              color: Colors.white,
-                                            ),
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(25.0),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  Container(
-                                                    height: 60,
-                                                    width: 60,
-                                                    decoration: BoxDecoration(
-                                                        color: AppColors
-                                                            .primary_color,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(360)),
-                                                    child: Lottie.asset(
-                                                        'assets/images/questionMark.json'),
-                                                  ),
-                                                  VSpace(MarginConst.m12),
-                                                  AppText(
-                                                    title: "Delete History ?",
-                                                    size: 14,
-                                                    fontWeight: FontWeight.w600,
-                                                    color: AppColors.black,
-                                                  ),
-                                                  VSpace(MarginConst.m12),
-                                                  AppText(
-                                                    textAlign: TextAlign.center,
-                                                    title:
-                                                        "Are you sure you want to delete this history?",
-                                                    size: 13,
-                                                    fontWeight: FontWeight.w400,
-                                                    color: Color(0xff606060),
-                                                  ),
-                                                  VSpace(MarginConst.m20),
-                                                  Row(
-                                                    children: [
-                                                      Expanded(
-                                                        child: AppButton(
-                                                            buttonHeight: 49,
-                                                            buttonRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        25),
-                                                            buttonName: "No",
-                                                            buttonColor: Color(
-                                                                0xffF9F9F9),
-                                                            textColor: Color(
-                                                                0xffC9C9C9),
-                                                            onTap: () {
-                                                              Navigator.pop(
-                                                                  context);
-                                                            }),
-                                                      ),
-                                                      HSpace(MarginConst.m4),
-                                                      Expanded(
-                                                        child: AppButton(
-                                                            buttonHeight: 49,
-                                                            buttonRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        25),
-                                                            buttonName: "Yes",
-                                                            buttonColor: AppColors
-                                                                .primary_color,
-                                                            textColor:
-                                                                Colors.white,
-                                                            onTap: () {
-                                                              Navigator.pop(
-                                                                  context);
-                                                            }),
-                                                      ),
-                                                    ],
-                                                  )
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                        );
                         Navigator.pop(context);
                       }),
                 ),
@@ -519,11 +403,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: AppButton(
                       buttonHeight: 49,
                       buttonRadius: BorderRadius.circular(6),
-                      buttonName: "Accept",
+                      buttonName: isAccept ?? "Accept",
                       buttonColor: AppColors.primary_color,
                       textColor: Colors.white,
                       onTap: () {
                         Navigator.pop(context);
+
+                        Get.bottomSheet(
+                          OrderDetail(
+                              isAccept: "Direction", isDenied: "Order Detail"),
+                          isScrollControlled: true,
+                        );
+                        if (isAccept != null) {
+                          Get.to(OrderDirection());
+                        }
                       }),
                 ),
               ],

@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       title: "My Hive Business",
       initialBinding: ProfileTypeBinding(),
       home: HomeScreen(),
-      //SplashScreen(),
+      // SplashScreen(),
       //HepSupport(),
       //ReviewPoint(),
       //SplashScreen(),
