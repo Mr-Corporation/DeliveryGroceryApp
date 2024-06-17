@@ -1,5 +1,5 @@
 import 'package:deliverygorceryapp/app/profile_type/profile_type_binding.dart';
-import 'package:deliverygorceryapp/delivery_app/Homepage/home_page.dart';
+import 'package:deliverygorceryapp/delivery_app/splash.dart';
 import 'package:deliverygorceryapp/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
@@ -31,8 +31,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "My Hive Business",
       initialBinding: ProfileTypeBinding(),
-      home: HomeScreen(),
-      // SplashScreen(),
+      home:
+          // HomeScreen(),
+          SplashScreen(),
       //HepSupport(),
       //ReviewPoint(),
       //SplashScreen(),

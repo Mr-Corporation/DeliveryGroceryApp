@@ -163,74 +163,200 @@ class _MyRewardState extends State<MyReward> {
     } else {
       return Padding(
         padding: const EdgeInsets.only(top: 20.0),
-        child: Container(
-          height: 93,
-          width: double.infinity,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(7),
-              color: AppColors.white_color),
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Row(
-              children: [
-                Container(
-                  height: 63,
-                  width: 63,
-                  decoration: BoxDecoration(
-                      color: Color(0xffF9F9F9),
-                      borderRadius: BorderRadius.circular(360)),
-                ),
-                HSpace(MarginConst.m10),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Spacer(),
-                    Text(
-                      'Chauffina Carr',
-                      style: TextStyle(
-                          fontSize: 10.0,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black),
-                    ),
-                    Spacer(),
-                    Text(
-                      'Joined since 20 Dec 2022',
-                      style: TextStyle(
-                        fontSize: 8.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xffB5B5B5),
-                      ),
-                    ),
-                    Spacer(),
-                    Row(
-                      children: [
-                        Icon(Icons.star, color: Color(0xffFFD73C), size: 11),
-                        Icon(Icons.star, color: Color(0xffFFD73C), size: 11),
-                        Icon(Icons.star, color: Color(0xffFFD73C), size: 11),
-                        Icon(Icons.star, color: Color(0xffFFD73C), size: 11),
-                        Icon(Icons.star_border,
-                            color: Color(0xff707070), size: 11),
-                      ],
-                    ),
-                    Spacer(),
-                  ],
-                ),
-                Spacer(),
-                Text(
-                  'View Detail',
-                  style: TextStyle(
-                    fontSize: 8.0,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xffF33F41),
+        child: GestureDetector(
+          onTap: () {
+            Get.bottomSheet(leaderBoardDetail(), enableDrag: true);
+          },
+          child: Container(
+            height: 93,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(7),
+                color: AppColors.white_color),
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Row(
+                children: [
+                  Container(
+                    height: 63,
+                    width: 63,
+                    decoration: BoxDecoration(
+                        color: Color(0xffF9F9F9),
+                        borderRadius: BorderRadius.circular(360)),
                   ),
-                ),
-              ],
+                  HSpace(MarginConst.m10),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Spacer(),
+                      Text(
+                        'Chauffina Carr',
+                        style: TextStyle(
+                            fontSize: 10.0,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black),
+                      ),
+                      Spacer(),
+                      Text(
+                        'Joined since 20 Dec 2022',
+                        style: TextStyle(
+                          fontSize: 8.0,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xffB5B5B5),
+                        ),
+                      ),
+                      Spacer(),
+                      Row(
+                        children: [
+                          Icon(Icons.star, color: Color(0xffFFD73C), size: 11),
+                          Icon(Icons.star, color: Color(0xffFFD73C), size: 11),
+                          Icon(Icons.star, color: Color(0xffFFD73C), size: 11),
+                          Icon(Icons.star, color: Color(0xffFFD73C), size: 11),
+                          Icon(Icons.star_border,
+                              color: Color(0xff707070), size: 11),
+                        ],
+                      ),
+                      Spacer(),
+                    ],
+                  ),
+                  Spacer(),
+                  Text(
+                    'View Detail',
+                    style: TextStyle(
+                      fontSize: 8.0,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xffF33F41),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
       );
     }
+  }
+
+  leaderBoardDetail() {
+    return Container(
+      width: Get.width,
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(24),
+        ),
+      ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              width: Get.width / 4,
+              margin: EdgeInsets.only(
+                top: 6,
+                bottom: 10,
+              ),
+              height: 5,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: AppColors.primary_color,
+              ),
+            ),
+            VSpace(MarginConst.m10),
+            Text(
+              'Top Rank',
+              style: TextStyle(
+                fontSize: 15.0,
+                fontWeight: FontWeight.w400,
+                color: Color(0xff272C2B),
+              ),
+            ),
+            SizedBox(height: 10),
+            Container(
+              height: 63,
+              width: 63,
+              decoration: BoxDecoration(
+                  color: Color(0xffF9F9F9),
+                  borderRadius: BorderRadius.circular(360)),
+            ),
+            VSpace(MarginConst.m10),
+            Text(
+              'Chauffina Carr',
+              style: TextStyle(
+                fontSize: 10.0,
+                fontWeight: FontWeight.w500,
+                color: Color(0xff000000),
+              ),
+            ),
+            SizedBox(height: 3),
+            Text(
+              'Joined since 20 Dec 2022',
+              style: TextStyle(
+                fontSize: 8.0,
+                fontWeight: FontWeight.w400,
+                color: Color(0xffB5B5B5),
+              ),
+            ),
+            SizedBox(height: 15),
+            _buildSummaryCards(),
+            VSpace(MarginConst.m20),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSummaryCards() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        _buildSummaryCard('Balance', '\$1200', Icons.account_balance),
+        _buildSummaryCard('Delivered orders', '50', Icons.local_shipping),
+      ],
+    );
+  }
+
+  Widget _buildSummaryCard(String title, String value, IconData icon) {
+    return Expanded(
+      child: Container(
+        height: 82,
+        margin: EdgeInsets.symmetric(horizontal: 8),
+        decoration: BoxDecoration(
+          color: Color(0xffF9F9F9),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(22),
+          child: Row(
+            children: [
+              Icon(icon, color: Colors.red, size: 19),
+              HSpace(MarginConst.m20),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    value,
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+              Spacer(),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _buildEarnedTab() {

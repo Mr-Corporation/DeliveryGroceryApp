@@ -1,5 +1,7 @@
 import 'package:deliverygorceryapp/constant_widget/base_view.dart';
 import 'package:deliverygorceryapp/delivery_app/help_support/help_support.dart';
+import 'package:deliverygorceryapp/delivery_app/my_rewards/my_reward.dart';
+import 'package:deliverygorceryapp/delivery_app/refer_earn/refer_earn.dart';
 import 'package:deliverygorceryapp/utils/app_colors/app_colors.dart';
 import 'package:deliverygorceryapp/utils/app_text/app_text.dart';
 import 'package:deliverygorceryapp/utils/dimen.dart';
@@ -225,10 +227,16 @@ class _AccountSettingState extends State<AccountSetting> {
                 title: 'Language Setting',
               ),
               _buildSettingsItem(
+                onTap1: () {
+                  Get.to(MyReward());
+                },
                 icon: Icons.redeem,
                 title: 'My Rewards',
               ),
               _buildSettingsItem(
+                onTap1: () {
+                  Get.to(ReferEarn());
+                },
                 icon: Icons.card_giftcard,
                 title: 'Refer & Earn',
               ),

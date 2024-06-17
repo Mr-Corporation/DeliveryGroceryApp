@@ -1,3 +1,4 @@
+import 'package:deliverygorceryapp/delivery_app/Homepage/home_page.dart';
 import 'package:deliverygorceryapp/delivery_app/account_setting.dart';
 import 'package:deliverygorceryapp/delivery_app/order_history/order_history.dart';
 import 'package:deliverygorceryapp/delivery_app/payment/payment.dart';
@@ -5,7 +6,7 @@ import 'package:deliverygorceryapp/utils/app_colors/app_colors.dart';
 import 'package:flutter/material.dart';
 
 List bottomScreen = [
-  PaymentView(),
+  HomeScreen(),
   PaymentView(),
   OrderHistory(),
   AccountSetting(),
