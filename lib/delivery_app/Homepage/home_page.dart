@@ -548,7 +548,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                           VSpace(MarginConst.m12),
                                           AppText(
-                                            title: "Points Redeemed",
+                                            title: "Order Accepted",
                                             size: 14,
                                             fontWeight: FontWeight.w600,
                                             color: AppColors.black,
@@ -557,7 +557,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           AppText(
                                             textAlign: TextAlign.center,
                                             title:
-                                                "Your Points are Redeemed & added to your wallet",
+                                                "You can check the order status in a order page",
                                             size: 13,
                                             fontWeight: FontWeight.w400,
                                             color: Color(0xff606060),
