@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:deliverygorceryapp/constant_widget/base_view.dart';
 import 'package:deliverygorceryapp/delivery_app/notification/notification.dart';
 import 'package:deliverygorceryapp/delivery_app/order_direction/order_direction_controller.dart';
+import 'package:deliverygorceryapp/delivery_app/order_history/order_detail.dart';
 import 'package:deliverygorceryapp/utils/app_button/app_button.dart';
 import 'package:deliverygorceryapp/utils/app_colors/app_colors.dart';
 import 'package:deliverygorceryapp/utils/app_text/app_text.dart';
@@ -83,9 +84,88 @@ class _OrderDirectionState extends State<OrderDirection> {
                     buttonColor: AppColors.white_color,
                     textColor: AppColors.primary_color,
                     onTap: () {
-                      Get.bottomSheet(
-                        CustomerDirection(),
-                        isScrollControlled: true,
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 25.0, right: 25),
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(20)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(25.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          height: 60,
+                                          width: 60,
+                                          decoration: BoxDecoration(
+                                              color: Color(0xff16C72E),
+                                              borderRadius:
+                                                  BorderRadius.circular(360)),
+                                          child: Icon(
+                                            Icons.check,
+                                            color: Colors.white,
+                                            size: 40,
+                                            weight: 30,
+                                          ),
+                                        ),
+                                        VSpace(MarginConst.m12),
+                                        AppText(
+                                          title: "Picked Orders",
+                                          size: 14,
+                                          fontWeight: FontWeight.w600,
+                                          color: AppColors.black,
+                                        ),
+                                        VSpace(MarginConst.m12),
+                                        AppText(
+                                          textAlign: TextAlign.center,
+                                          title:
+                                              "You've picked all your order start your journey",
+                                          size: 13,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color(0xff606060),
+                                        ),
+                                        VSpace(MarginConst.m20),
+                                        Row(
+                                          children: [
+                                            Expanded(
+                                              child: AppButton(
+                                                  buttonHeight: 49,
+                                                  buttonRadius:
+                                                      BorderRadius.circular(6),
+                                                  buttonName:
+                                                      "Direction to customer",
+                                                  buttonColor:
+                                                      AppColors.primary_color,
+                                                  textColor: Colors.white,
+                                                  onTap: () {
+                                                    Navigator.pop(context);
+                                                    Get.bottomSheet(
+                                                      CustomerDirection(),
+                                                      isScrollControlled: true,
+                                                    );
+                                                  }),
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
                       );
                     }),
                 VSpace(MarginConst.m10),
@@ -123,9 +203,88 @@ class _OrderDirectionState extends State<OrderDirection> {
                     buttonColor: AppColors.white_color,
                     textColor: AppColors.primary_color,
                     onTap: () {
-                      Get.bottomSheet(
-                        CustomerDirection(),
-                        isScrollControlled: true,
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 25.0, right: 25),
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(20)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(25.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          height: 60,
+                                          width: 60,
+                                          decoration: BoxDecoration(
+                                              color: Color(0xff16C72E),
+                                              borderRadius:
+                                                  BorderRadius.circular(360)),
+                                          child: Icon(
+                                            Icons.check,
+                                            color: Colors.white,
+                                            size: 40,
+                                            weight: 30,
+                                          ),
+                                        ),
+                                        VSpace(MarginConst.m12),
+                                        AppText(
+                                          title: "Picked Orders",
+                                          size: 14,
+                                          fontWeight: FontWeight.w600,
+                                          color: AppColors.black,
+                                        ),
+                                        VSpace(MarginConst.m12),
+                                        AppText(
+                                          textAlign: TextAlign.center,
+                                          title:
+                                              "You've picked all your order start your journey",
+                                          size: 13,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color(0xff606060),
+                                        ),
+                                        VSpace(MarginConst.m20),
+                                        Row(
+                                          children: [
+                                            Expanded(
+                                              child: AppButton(
+                                                  buttonHeight: 49,
+                                                  buttonRadius:
+                                                      BorderRadius.circular(6),
+                                                  buttonName:
+                                                      "Direction to customer",
+                                                  buttonColor:
+                                                      AppColors.primary_color,
+                                                  textColor: Colors.white,
+                                                  onTap: () {
+                                                    Navigator.pop(context);
+                                                    Get.bottomSheet(
+                                                      CustomerDirection(),
+                                                      isScrollControlled: true,
+                                                    );
+                                                  }),
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
                       );
                     }),
               ],
@@ -526,7 +685,91 @@ class _OrderDirectionState extends State<OrderDirection> {
                 buttonHeight: 57,
                 buttonColor: AppColors.primary_color,
                 textColor: Colors.white,
-                onTap: () {}),
+                onTap: () {
+                  Navigator.pop(context);
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 25.0, right: 25),
+                            child: Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(25.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 60,
+                                      width: 60,
+                                      decoration: BoxDecoration(
+                                          color: Color(0xff16C72E),
+                                          borderRadius:
+                                              BorderRadius.circular(360)),
+                                      child: Icon(
+                                        Icons.check,
+                                        color: Colors.white,
+                                        size: 40,
+                                        weight: 30,
+                                      ),
+                                    ),
+                                    VSpace(MarginConst.m12),
+                                    AppText(
+                                      title: "Order Delivered",
+                                      size: 14,
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.black,
+                                    ),
+                                    VSpace(MarginConst.m12),
+                                    AppText(
+                                      textAlign: TextAlign.center,
+                                      title:
+                                          "You've delivered all your order Successfully",
+                                      size: 13,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff606060),
+                                    ),
+                                    VSpace(MarginConst.m20),
+                                    Row(
+                                      children: [
+                                        Expanded(
+                                          child: AppButton(
+                                              buttonHeight: 49,
+                                              buttonRadius:
+                                                  BorderRadius.circular(6),
+                                              buttonName: "Check Detail",
+                                              buttonColor:
+                                                  AppColors.primary_color,
+                                              textColor: Colors.white,
+                                              onTap: () {
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(
+                                                  builder: (context) {
+                                                    return OrderDetail();
+                                                  },
+                                                ));
+                                              }),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }),
             VSpace(MarginConst.m14),
           ],
         ),

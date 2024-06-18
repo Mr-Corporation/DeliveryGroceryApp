@@ -6,6 +6,9 @@ import 'package:deliverygorceryapp/utils/app_colors/app_colors.dart';
 import 'package:deliverygorceryapp/utils/dimen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
+
+import '../../utils/app_text/app_text.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -396,6 +399,100 @@ class _HomeScreenState extends State<HomeScreen> {
                       textColor: Color(0xffC9C9C9),
                       onTap: () {
                         Navigator.pop(context);
+
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 25.0, right: 25),
+                                  child: Container(
+                                    height: 265,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(25.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            height: 60,
+                                            width: 60,
+                                            decoration: BoxDecoration(
+                                                color: AppColors.primary_color,
+                                                borderRadius:
+                                                    BorderRadius.circular(360)),
+                                            child: Lottie.asset(
+                                                'assets/images/questionMark.json'),
+                                          ),
+                                          VSpace(MarginConst.m12),
+                                          AppText(
+                                            title: "Order Decline ?",
+                                            size: 14,
+                                            fontWeight: FontWeight.w600,
+                                            color: AppColors.black,
+                                          ),
+                                          VSpace(MarginConst.m12),
+                                          AppText(
+                                            textAlign: TextAlign.center,
+                                            title:
+                                                "Are you sure you want to decline this order ?",
+                                            size: 13,
+                                            fontWeight: FontWeight.w400,
+                                            color: Color(0xff606060),
+                                          ),
+                                          VSpace(MarginConst.m20),
+                                          Row(
+                                            children: [
+                                              Expanded(
+                                                child: AppButton(
+                                                    buttonHeight: 49,
+                                                    buttonRadius:
+                                                        BorderRadius.circular(
+                                                            6),
+                                                    buttonName: "No",
+                                                    buttonColor:
+                                                        Color(0xffF9F9F9),
+                                                    textColor:
+                                                        Color(0xffC9C9C9),
+                                                    onTap: () {
+                                                      Navigator.pop(context);
+                                                    }),
+                                              ),
+                                              HSpace(MarginConst.m4),
+                                              Expanded(
+                                                child: AppButton(
+                                                    buttonHeight: 49,
+                                                    buttonRadius:
+                                                        BorderRadius.circular(
+                                                            6),
+                                                    buttonName: "Yes",
+                                                    buttonColor:
+                                                        AppColors.primary_color,
+                                                    textColor: Colors.white,
+                                                    onTap: () {
+                                                      Navigator.pop(context);
+                                                    }),
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        );
                       }),
                 ),
                 HSpace(MarginConst.m4),
@@ -408,15 +505,100 @@ class _HomeScreenState extends State<HomeScreen> {
                       textColor: Colors.white,
                       onTap: () {
                         Navigator.pop(context);
-
-                        Get.bottomSheet(
-                          OrderDetail(
-                              isAccept: "Direction", isDenied: "Order Detail"),
-                          isScrollControlled: true,
-                        );
                         if (isAccept != null) {
                           Get.to(OrderDirection());
+                          return;
                         }
+
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 25.0, right: 25),
+                                  child: Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(25.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            height: 60,
+                                            width: 60,
+                                            decoration: BoxDecoration(
+                                                color: Color(0xff16C72E),
+                                                borderRadius:
+                                                    BorderRadius.circular(360)),
+                                            child: Icon(
+                                              Icons.check,
+                                              color: Colors.white,
+                                              size: 40,
+                                              weight: 30,
+                                            ),
+                                          ),
+                                          VSpace(MarginConst.m12),
+                                          AppText(
+                                            title: "Points Redeemed",
+                                            size: 14,
+                                            fontWeight: FontWeight.w600,
+                                            color: AppColors.black,
+                                          ),
+                                          VSpace(MarginConst.m12),
+                                          AppText(
+                                            textAlign: TextAlign.center,
+                                            title:
+                                                "Your Points are Redeemed & added to your wallet",
+                                            size: 13,
+                                            fontWeight: FontWeight.w400,
+                                            color: Color(0xff606060),
+                                          ),
+                                          VSpace(MarginConst.m20),
+                                          Row(
+                                            children: [
+                                              Expanded(
+                                                child: AppButton(
+                                                    buttonHeight: 49,
+                                                    buttonRadius:
+                                                        BorderRadius.circular(
+                                                            6),
+                                                    buttonName: "Done",
+                                                    buttonColor:
+                                                        AppColors.primary_color,
+                                                    textColor: Colors.white,
+                                                    onTap: () {
+                                                      Navigator.pop(context);
+                                                      Get.bottomSheet(
+                                                        OrderDetail(
+                                                            isAccept:
+                                                                "Direction",
+                                                            isDenied:
+                                                                "Order Detail"),
+                                                        isScrollControlled:
+                                                            true,
+                                                      );
+                                                    }),
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        );
                       }),
                 ),
               ],
