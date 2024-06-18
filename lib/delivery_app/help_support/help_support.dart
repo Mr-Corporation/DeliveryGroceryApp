@@ -118,7 +118,178 @@ class _HepSupportState extends State<HepSupport> {
                   buttonHeight: 57,
                   buttonColor: AppColors.primary_color,
                   textColor: Colors.white,
-                  onTap: () {}),
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Material(
+                            color: Colors.transparent,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 25.0, right: 25),
+                                  child: Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(25.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            color: Color(0xff00000014),
+                                            child: commonTextField(
+                                                color: Color(0xff00000014),
+                                                hint_text: "Enter your email",
+                                                maxLines: 5),
+                                          ),
+                                          VSpace(MarginConst.m20),
+                                          AppButton(
+                                              buttonHeight: 49,
+                                              buttonRadius:
+                                                  BorderRadius.circular(6),
+                                              buttonName: "Send",
+                                              buttonColor:
+                                                  AppColors.primary_color,
+                                              textColor: Color(0xffC9C9C9),
+                                              onTap: () {
+                                                Navigator.pop(context);
+
+                                                showDialog(
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .only(
+                                                                  left: 25.0,
+                                                                  right: 25),
+                                                          child: Container(
+                                                            width:
+                                                                double.infinity,
+                                                            decoration: BoxDecoration(
+                                                                color: Colors
+                                                                    .white,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            20)),
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(
+                                                                      25.0),
+                                                              child: Column(
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Container(
+                                                                    height: 60,
+                                                                    width: 60,
+                                                                    decoration: BoxDecoration(
+                                                                        color: Color(
+                                                                            0xff16C72E),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(360)),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .check,
+                                                                      color: Colors
+                                                                          .white,
+                                                                      size: 40,
+                                                                      weight:
+                                                                          30,
+                                                                    ),
+                                                                  ),
+                                                                  VSpace(
+                                                                      MarginConst
+                                                                          .m12),
+                                                                  AppText(
+                                                                    title:
+                                                                        "You Feedback has been Sent!",
+                                                                    size: 14,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    color: AppColors
+                                                                        .black,
+                                                                  ),
+                                                                  VSpace(
+                                                                      MarginConst
+                                                                          .m12),
+                                                                  AppText(
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                    title:
+                                                                        "Thank you for helping make Mr app better",
+                                                                    size: 13,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w400,
+                                                                    color: Color(
+                                                                        0xff606060),
+                                                                  ),
+                                                                  VSpace(
+                                                                      MarginConst
+                                                                          .m20),
+                                                                  Row(
+                                                                    children: [
+                                                                      Expanded(
+                                                                        child: AppButton(
+                                                                            buttonHeight: 49,
+                                                                            buttonRadius: BorderRadius.circular(6),
+                                                                            buttonName: "Done",
+                                                                            buttonColor: AppColors.primary_color,
+                                                                            textColor: Colors.white,
+                                                                            onTap: () {
+                                                                              Navigator.pop(context);
+                                                                            }),
+                                                                      ),
+                                                                    ],
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    );
+                                                  },
+                                                );
+                                              }),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  }),
               VSpace(MarginConst.m10),
             ],
           ),
